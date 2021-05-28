@@ -4,4 +4,4 @@ This is mostly to serve as a way for me to document some procedures/tasks that I
 
 Content: 
 
-1. [Exporting character from Blender to Mixamo](./2021-05-27-blender-to-mixamo.md)
+1. [Exporting character from Blender to Mixamo](./blender-to-mixamo.md)
