@@ -1,7 +1,8 @@
 Being a Blender noob I find working work weights/vertex groups/armatures confusing as heck. Every time I import a Mixamo animation, I usually need to adjust the weights
 in Blender to fix up the animation. This is to serve as a quick reference on this workflow. 
 
-> Note I'm still figuring this out so I don't recommend taking this stuff as gospel.
+> Note: I'm still figuring this out so I don't recommend taking this stuff as gospel.
+> If you want to learn more, I suggest reading the docs [here](https://docs.blender.org/manual/en/latest/modeling/meshes/properties/vertex_groups/introduction.html) and [here](https://docs.blender.org/manual/en/latest/animation/armatures/skinning/parenting.html)
 
 ### Vertex Groups
 
