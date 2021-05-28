@@ -40,4 +40,4 @@ Next, for each OB one by one do the following:
 
 ![image](https://user-images.githubusercontent.com/10904967/119920126-c7bc9c80-bf39-11eb-9c0e-2c9cfcd9c804.png)
 
-11. Once done delete the objects under the armature.
+Once done delete the objects under the armature.
