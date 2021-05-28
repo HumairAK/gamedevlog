@@ -7,4 +7,4 @@ I am a huge beginner to Blender/Unity, so I don't claim to know everything, nor 
 Content: 
 
 1. [Exporting character from Blender to Mixamo](./blender-to-mixamo.md)
-2. [Adding another animation from Mixamo to Blender](./add-mulitple-animations-from-mixamo.md)
+2. [Adjusting Vertex Groups in Mixamo](./mixamo-blender-vertex-groups.md)
