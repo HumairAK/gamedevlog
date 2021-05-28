@@ -41,3 +41,16 @@ Next, for each OB one by one do the following:
 ![image](https://user-images.githubusercontent.com/10904967/119920126-c7bc9c80-bf39-11eb-9c0e-2c9cfcd9c804.png)
 
 Once done delete the objects under the armature.
+
+### Add another animation
+
+For our game character we probably wan't another animation. 
+
+Download another animation from Mixamo, I've found it a bit bugging when importing "without skin", so I just keep the skin (but remove it later since we use our existing objects). 
+
+Then import it just like before. This time you can delete this new Armature and it's child objects, keeping the animation.
+
+Select the Dope Sheet > Action Editor panel, and rename the animations accordingly.
+
+![image](https://user-images.githubusercontent.com/10904967/119923180-3e0fcd80-bf3f-11eb-9292-e2b878f38c69.png)
+
