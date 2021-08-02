@@ -24,7 +24,7 @@ Vector3 direction = playerOrigin.normalized;
 
 
 
-![](.\assets\vector_basics_in_unity\1.PNG)
+![image](./assets/vector_basics_in_unity/1.PNG)
 
 In the illustration above, the red is the origin, and the green cube is the player. Then `direction` from the code snippet above represents the arrow. 
 
@@ -39,7 +39,7 @@ float playerDistance = playerOrigin.magnitude;
 
 Similar to distance, in this example the `magnitude` can be thought of as the distance of the player from the origin. This is illustrated below: 
 
-![2](.\assets\vector_basics_in_unity\2.PNG)
+![image](./assets/vector_basics_in_unity/2.PNG)
 
 
 
@@ -66,7 +66,7 @@ Let's prove that we're right in this case by drawing a line from the origin (red
 
 In this script we draw a line from the origin to the direction of the player, provided that `normalized` indeed gives us this direction. Running the script results in: 
 
-![](F:\Blog\gamedevlog.github.io\assets\vector_basics_in_unity\1.gif)
+![image](./assets/vector_basics_in_unity/1.gif)
 
 Indeed we get the results we expect. The blue ray is indeed going from the origin to the direction of the player. But why is the line not connecting with the player? Remember that the `normalized` call simply returns another vector with a magnitude of 1, in this case magnitude represents distance, so the blue line only has a distance of 1. To fully connect this to the player, we need to incorporate the vector distance (magnitude) as well! 
 
@@ -86,7 +86,7 @@ Indeed we get the results we expect. The blue ray is indeed going from the origi
 
 By multiplying the direction by distance, we are "scaling" the direction vector by that distance value, this can be conceptually thought of as _moving in that direction_. The amended code gives the following result: 
 
-![](.\assets\vector_basics_in_unity\2.gif)
+![image](./assets/vector_basics_in_unity/2.gif)
 
 Success! Note that we will see the exact same results if we replace `playerPos` with `directionFromOriginToPlayer * distanceFromOriginToPlayer`. This is expected, since the whole point of the exercise is to show that the position vector3 is, in fact, comprised of these two properties: direction & distance. 
 
@@ -98,7 +98,7 @@ So far we have been considering only position relative to the origin for the pla
 
 
 
-![3](.\assets\vector_basics_in_unity\3.png)
+![image](./assets/vector_basics_in_unity/3.png)
 
 In this new example we have another object, the blue cube. Let's call this blue cube the "enemy". As the illustration suggests, what if we want to calculate the distance from the player and the enemy? same with direction. Before the distance/direction from origin to player was implicit by the call to `player.transform.position`. We can get a similar result for the enemy player by doing something like `enemy.transform.position` like so: 
 
@@ -127,7 +127,7 @@ In this new example we have another object, the blue cube. Let's call this blue 
 
 This results in: 
 
-![](.\assets\vector_basics_in_unity\3.gif)
+![image](./assets/vector_basics_in_unity/3.gif)
 
 
 
@@ -147,7 +147,7 @@ Take a minute to think about why this won't work.
 
 Okay so let's see what happens if we run this: 
 
-![](F:\Blog\gamedevlog.github.io\assets\vector_basics_in_unity\4.gif)
+![image](./assets/vector_basics_in_unity/4.gif)
 
 
 
@@ -155,7 +155,7 @@ What is going on here? Remember that the second argument to [DrawRay](https://do
 
 What we need is to find the direction of the player to the enemy. This requires us to perform some Vector arithmetic. To get a direction of a vector A to vector B we need to subtract vector B from vector A i.e. `AB-> = B - A` . It' easier to explain why this works if we consider 2D vectors and the following diagram of a 2d cartesian space: 
 
-![](.\assets\vector_basics_in_unity\4.png)
+![image](./assets/vector_basics_in_unity/4.png)
 
 I've kept the color scheme of the lines analogous to our example. The red vector, which is (3, -2) gives the directionfrom the point (2,4) to (5,2). Think of it it as the "steps" one needs to take to get to point (2,4) to (5,2). In this case we need to go 3 steps right, and 2 steps down from 2,4 to get to 5,2. If we instead subtract `(2,4) - (5,2)` then we get the reverse i.e. (-3, 2), 3 steps left, 2 steps up. Which is the vector moving from (5,2) in the direction towards (2,4). 
 
@@ -179,7 +179,7 @@ Let's use this new found knowledge in our example:
 
 This gives us the following result: 
 
-![](.\assets\vector_basics_in_unity\5.gif)
+![image](./assets/vector_basics_in_unity/5.gif)
 
 And we get the intended result! 
 
