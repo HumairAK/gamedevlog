@@ -6,7 +6,15 @@ I am a huge beginner to Blender/Unity, so I don't claim to know everything, nor 
 
 Content: 
 
+
+
+Blender:
+
 1. [Exporting character from Blender to Mixamo](./blender-to-mixamo.md)
 2. [Adjusting Vertex Groups in Mixamo](./mixamo-blender-vertex-groups.md)
 3. [Move animations in blender](./blender-move-animation.md)
+
+Unity: 
+
+1. [Vector3 Basics](./vector_basics_in_unity.md)
 
