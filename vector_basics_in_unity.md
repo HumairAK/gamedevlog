@@ -64,11 +64,11 @@ Let's prove that we're right in this case by drawing a line from the origin (red
         );
 ```
 
-In this script we draw a line from the origin to the direction of the player, provided that `normalized` indeed gives us this direction. Running the script results in: 
+In this script we draw a line from the origin to the direction of the player, provided that `normalized` gives us this direction. Running the script results in: 
 
 ![image](./assets/vector_basics_in_unity/1.gif)
 
-Indeed we get the results we expect. The blue ray is indeed going from the origin to the direction of the player. But why is the line not connecting with the player? Remember that the `normalized` call simply returns another vector with a magnitude of 1, in this case magnitude represents distance, so the blue line only has a distance of 1. To fully connect this to the player, we need to incorporate the vector distance (magnitude) as well! 
+Indeed we get the results we expect. The blue ray is going from the origin to the direction of the player. But why is the line not connecting with the player? Remember that the `normalized` call simply returns another vector with a magnitude of 1, in this case magnitude represents distance, so the blue line only has a distance of 1. To fully connect this to the player, we need to incorporate the vector distance (magnitude) as well! 
 
 
 
