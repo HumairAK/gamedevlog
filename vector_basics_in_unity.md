@@ -100,7 +100,7 @@ So far we have been considering only position relative to the origin for the pla
 
 ![image](./assets/vector_basics_in_unity/3.png)
 
-In this new example we have another object, the blue cube. Let's call this blue cube the "enemy". As the illustration suggests, what if we want to calculate the distance from the player and the enemy? same with direction. Before the distance/direction from origin to player was implicit by the call to `player.transform.position`. We can get a similar result for the enemy player by doing something like `enemy.transform.position` like so: 
+In this new example we have another object, the blue cube. Let's call this blue cube the "enemy".  Looking at the illustration suggests, what if we want to calculate the distance from the player and the enemy? same with direction. Before, the distance/direction from origin to player was implicit by the call to `player.transform.position`. We can get a similar result for the enemy player by doing something like `enemy.transform.position` like so: 
 
 ```c#
     public GameObject enemy;
