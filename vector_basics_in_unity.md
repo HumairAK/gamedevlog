@@ -157,7 +157,7 @@ What we need is to find the direction of the player to the enemy. This requires 
 
 ![image](./assets/vector_basics_in_unity/4.png)
 
-I've kept the color scheme of the lines analogous to our example. The red vector, which is (3, -2) gives the directionfrom the point (2,4) to (5,2). Think of it it as the "steps" one needs to take to get to point (2,4) to (5,2). In this case we need to go 3 steps right, and 2 steps down from 2,4 to get to 5,2. If we instead subtract `(2,4) - (5,2)` then we get the reverse i.e. (-3, 2), 3 steps left, 2 steps up. Which is the vector moving from (5,2) in the direction towards (2,4). 
+I've kept the color scheme of the lines analogous to our example. The red vector, which is (3, -2) gives the direction from the point (2,4) to (5,2). Think of it it as the "steps" one needs to take to get to point (2,4) to (5,2). In this case we need to go 3 steps right, and 2 steps down from 2,4 to get to 5,2. If we instead subtract `(2,4) - (5,2)` then we get the reverse i.e. (-3, 2), 3 steps left, 2 steps up. Which is the vector moving from (5,2) in the direction towards (2,4). 
 
 Let's use this new found knowledge in our example: 
 
@@ -183,3 +183,136 @@ This gives us the following result:
 
 And we get the intended result! 
 
+# How to move an object in a given direction 
+
+Earlier we encountered a scenario where we had to **scale** our `direction` by the `magnitude` (in this case also distance) to connect our lines between objects. *Scaling the direction* in this case allowed us to move the position along the direction we intended. Scaling is achieved by _multiplying_ a vector by some number, which we call  a `scalar`. 
+
+When we were drawing our line from `player` to `enemy` , we needed three attributes: `playerPos`, `directionFromPlayerToEnemy`, `distanceFromPlayerToEnemy`. Then it was simply a matter of drawing a line from `playerPos` in the direction of `directionFromPlayerToEnemy` **scaled** by the distance of `distanceFromPlayerToEnemy`. The value `distanceFromPlayerToEnemy` in this case was our `scalar`. 
+
+The same principle applies when we want to **move** an object in another direction. Consider the following scenario: 
+
+![image](./assets/vector_basics_in_unity/5.png)
+
+
+
+Where red is our origin point in our world, green is our player, and blue is our enemy once again. I've kept the `DrawRays` to serve as visual aids (they are not directly relevant to this section however). Code is very similar to what we have been doing in the previous sections: 
+
+```c#
+Vector3 playerPos = player.transform.position;
+Vector3 enemyPos = enemy.transform.position;
+Vector3 originPos = origin.transform.position;
+
+Debug.DrawRay(
+    originPos,
+    playerPos,
+    Color.red
+);
+
+Debug.DrawRay(
+    originPos,
+    enemyPos,
+    Color.blue
+);
+```
+
+
+
+Suppose I wanted to move the player to where the enemy is? In order to do this, we need to move the player in the direction of the enemy but the distance between the two: 
+
+```c#
+// We first get out direction as before 
+Vector3 directionFromPlayerToEnemy = (enemyPos - playerPos).normalized;
+
+// This allows us to calculate the distance between player and enemy
+float distanceBetweenEnemyAndPlayer = Vector3.Distance(playerPos, enemyPos);
+
+// We now scale our direction by the distance, this vector now comprises of a direction + distance
+Vector3 scaledDirectionByDistance = directionFromPlayerToEnemy * distanceBetweenEnemyAndPlayer;
+
+// By adding this vector to player position, we move the player in the given direction by the distance
+player.transform.position = playerPos + scaledDirectionByDistance;   
+```
+
+
+
+For the sake of this tutorial, we'll use a 2nd object to represent the `player` _after_ it has moved, so that we can see the old player position. Let's call this `futurePlayer`, and add it to our world like so: 
+
+![image](./assets/vector_basics_in_unity/6.png)
+
+
+
+The yellow cube can be thought of as a "future" green cube. 
+
+ We change our code to the following: 
+
+```c#
+    public GameObject enemy;
+    public GameObject origin;
+    public GameObject player;
+    public GameObject futurePlayer;
+	void Update()
+    {
+        Vector3 playerPos = player.transform.position;
+        Vector3 enemyPos = enemy.transform.position;
+        Vector3 originPos = origin.transform.position;
+        
+        Debug.DrawRay(
+            originPos,
+            playerPos,
+            Color.red
+        );
+        
+        Debug.DrawRay(
+            originPos,
+            enemyPos,
+            Color.blue
+        );
+        
+        Vector3 directionFromPlayerToEnemy = (enemyPos - playerPos).normalized;
+        float distanceBetweenEnemyAndPlayer = Vector3.Distance(playerPos, enemyPos);
+        Vector3 scaledDirectionByDistance = directionFromPlayerToEnemy * distanceBetweenEnemyAndPlayer;
+        futurePlayer.transform.position = playerPos + scaledDirectionByDistance;        
+    }
+```
+
+Running our code yields the following result: 
+
+![image](./assets/vector_basics_in_unity/6.gif)
+
+
+
+As you can see our `futurePlayer` has moved over to where the `enemy` is. 
+
+Now suppose we don't want to move all the way to where the `enemy` is, we want to move only half way. How can we do this? 
+We can reduce our scalar value by 50%: 
+
+```c#
+//...
+        Vector3 directionFromPlayerToEnemy = (enemyPos - playerPos).normalized;
+        float distanceBetweenEnemyAndPlayer = Vector3.Distance(playerPos, enemyPos);
+        Vector3 scaledDirectionByDistance = directionFromPlayerToEnemy * distanceBetweenEnemyAndPlayer;
+		// Reduce the scalar value by 50%, this will half the distance we travel in that particular direction
+		scaledDirectionByDistance = scaledDirectionByDistance * 0.5f;
+        futurePlayer.transform.position = playerPos + scaledDirectionByDistance;    
+```
+
+This gets us the following result: 
+
+![image](./assets/vector_basics_in_unity/7.gif)
+
+Note that the yellow cube representing our `futurePlayer` is now permanently situated between our old `player` and the `enemy`. 
+
+Also note that: 
+
+```c#
+Vector3 directionFromPlayerToEnemy = (enemyPos - playerPos).normalized;
+float distanceBetweenEnemyAndPlayer = Vector3.Distance(playerPos, enemyPos);
+Vector3 scaledDirectionByDistance = directionFromPlayerToEnemy * distanceBetweenEnemyAndPlayer;
+scaledDirectionByDistance = scaledDirectionByDistance * 0.5f;
+futurePlayer.transform.position = playerPos + scaledDirectionByDistance;  
+
+// is equivalent to running: 
+futurePlayer.transform.position = playerPos + (enemyPos - playerPos) * 0.5f;    
+```
+
+The reason is very similar to the previous section. Recall that a `position` is comprised of a `direction` and `magnitude` (in this case distance) relative to another position (in this case the enemy). By subtracting `enemyPos` from `playerPos` we are not only getting the direction from `player` to `enemy`, but we're also getting the `distance`. The way we initially did things is actually counter intuitive in practice, as we're stripping the same information away from the positions that we are then adding back in later by recalculating the distance.
