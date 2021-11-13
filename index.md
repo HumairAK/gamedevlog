@@ -10,7 +10,7 @@ Content:
 
 Blender:
 
-1. [Exporting character from Blender to Mixamo](./blender-to-mixamo.md)
+1. [Exporting from Blender to Mixamo then re-importing to Blender](./blender-to-mixamo.md)
 2. [Adjusting Vertex Groups in Mixamo](./mixamo-blender-vertex-groups.md)
 3. [Move animations in blender](./blender-move-animation.md)
 

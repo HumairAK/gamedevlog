@@ -1,3 +1,35 @@
+In this section I go over how you can take your character mesh in Blender, import it to Mixamo, get some animations, then add those animations in Blender without disrupting your existing Mesh's in Blender.
+
+Table of Contents: 
+
+- [Intro](##intro)
+- [Importing animations into a fresh project](##importing-animations-into-a-fresh-project) 
+- [Importing animations into a pre-configured project](##Importing-animations-into-a-preconfigured-project)
+
+
+
+## Intro
+
+The first time we add animations will be a bit more involved, but once we're done setting up our workflow, adding new animations from Mixamo will become significantly easier.
+
+Mixamo workflow boils down to: 
+
+1. Export character from Blender in `obj` format
+2. Upload this `obj` to Mixamo
+3. Select an animation in Mixamo
+4. Download animation in Mixamo, with skin selected 
+5. Import downloaded `fbx` format into Blender
+    a. If importing animation from Mixamo for the first time in this project, then set up vertex groups 
+    b. If not importing for the first time, then clear everything that is not an animation 
+
+We cover 1-4 and 5a in the first half of this tutorial. And 5b is covered in the end. 
+
+
+
+## Importing animations into a fresh project 
+
+
+
 We are going to take the following character from Blender and get some animations for it from Mixamo.
 
 ![image](https://user-images.githubusercontent.com/10904967/119897415-5ddacd80-bf0e-11eb-8cae-0a1a5bc4e87f.png)
@@ -15,7 +47,7 @@ We are going to take the following character from Blender and get some animation
 
 I also check "Apply Transform" as it yields better results when trying to use the same armature for a different imported animation. The imported objects might look funky, but we won't be using these so I think it's not an issue. (If anyone knows why this happens please let me know, I still haven't figured it out).
 
-### Hook up Armature to existing objects
+#### Hook up Armature to existing objects
 
 So what I want is the animation and vertex groups/weights. For the first animation I import, I keep the armature, but for the successive imports I'll clear their armatures.
 
@@ -42,7 +74,7 @@ Next, for each OB one by one do the following:
 
 Once done delete the objects under the armature.
 
-### Add another animation
+### Importing animations into a preconfigured project
 
 For our game character we probably wan't another animation. 
 

@@ -19,10 +19,10 @@ To see visually what vertices are in a vertex group, go to edit mode > select th
 As far as I understand it, a vertex group is mapped to a bone for which it is named after. So for example, `mixamorig:Spine2` bone should influence the vertex group with the
 same name. So you need to make sure that the vertices in the respective group are properly assigned for the matching bone.
 
-To do this first go to `Pose Mode` then select the bone using LMB
+To do this first, select the `Armature`, go to `Pose Mode` then select the bone using LMB
 ![image](https://user-images.githubusercontent.com/10904967/119939248-8e952400-bf5b-11eb-873a-f9f38784441f.png)
 
-Then select the mesh:
+Then, `ctrl`+`tab` and it should switch to `Object Mode`. Or click the top left dropdown and select `Object Mode`. Then select the mesh by clicking `shift` + `LMB`:
 
 ![image](https://user-images.githubusercontent.com/10904967/119939310-a40a4e00-bf5b-11eb-93a0-6a8b1bc54122.png)
 
@@ -43,3 +43,8 @@ will influence these vertices when moving.
 
 ![image](https://user-images.githubusercontent.com/10904967/119940840-c7ce9380-bf5d-11eb-98d8-a25f10fc9d25.png)
 
+Enabling `Viewport shading` (top right) will also allow you to see the bones make it easier to select them: 
+
+![image](assets\blender\selecting_bones_weights.PNG)
+
+Now try clicking one of the bones , for example if we click `mixamorig:Spine` we see that it corresponds to the `mixamorig:Spine` vertex group. If we were to paint other vertices using weight paint while having this bone selected, then we'd essentially be extending the set vertices in **this corresponding group** along with their relevant weights. This then translates to, "the vertices affected by this bone's movement, and by how much".
