@@ -5,8 +5,7 @@ Table of Contents:
 - [Intro](##intro)
 - [Importing animations into a fresh project](##importing-animations-into-a-fresh-project) 
 - [Importing animations into a pre-configured project](##Importing-animations-into-a-preconfigured-project)
-
-
+- [Add animation to Unity](#Add-animation-to-Unity)
 
 ## Intro
 
@@ -85,4 +84,18 @@ Then import it just like before. This time you can delete this new Armature and 
 Select the Dope Sheet > Action Editor panel, and rename the animations accordingly.
 
 ![image](https://user-images.githubusercontent.com/10904967/119923180-3e0fcd80-bf3f-11eb-9292-e2b878f38c69.png)
+
+
+
+## Add Animation to Unity
+
+Export the `fbx` as usual from Blender, and import the character to Unity. I use the following settings: 
+
+![](assets/blender/image-20211113125625081.png)
+
+Drag this character into your Unity project. The animations will be included in this file, you can click the arrow on the thumbnail to see them. Ensure that you follow the "Set up the Avatar" steps as described [here](https://docs.unity3d.com/Manual/ConfiguringtheAvatar.html) , usually I just need to set the `Animation Type` to `Humanoid` and click `apply`.
+
+Next expand the character by clicking the little arrow on the thumbnail, select the animations and click `ctrl`+`d` . This will decouple the animations from the character.
+
+![image-20211113130515327](assets/blender/image-20211113130515327.png)
 
