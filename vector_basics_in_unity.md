@@ -24,7 +24,7 @@ Vector3 direction = playerOrigin.normalized;
 
 
 
-![image](./assets/vector_basics_in_unity/1.PNG)
+![image](./assets/vector_basics_in_unity/1.png)
 
 In the illustration above, the red is the origin, and the green cube is the player. Then `direction` from the code snippet above represents the arrow. 
 
@@ -39,7 +39,7 @@ float playerDistance = playerOrigin.magnitude;
 
 Similar to distance, in this example the `magnitude` can be thought of as the distance of the player from the origin. This is illustrated below: 
 
-![image](./assets/vector_basics_in_unity/2.PNG)
+![image](./assets/vector_basics_in_unity/2.png)
 
 
 
