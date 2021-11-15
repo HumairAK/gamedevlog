@@ -217,7 +217,7 @@ Debug.DrawRay(
 
 
 
-Suppose I wanted to move the player to where the enemy is? In order to do this, we need to move the player in the direction of the enemy but the distance between the two: 
+Suppose I wanted to move the player to where the enemy is? In order to do this, we need to move the player in the direction of the enemy by the distance between the two: 
 
 ```c#
 // We first get out direction as before 
